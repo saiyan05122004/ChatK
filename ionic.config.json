@@ -1,0 +1,7 @@
+{
+  "name": "ChatK",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
