@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+   <!-- Вывод списка сообщений -->
+   <app-message-list></app-message-list>
+   
+   <!-- Форма для отправки новых сообщений -->
+   <form (ngSubmit)="sendMessage()">
+      <ion-item lines="none">
+         <ion-input type="text" [(ngModel)]="messageText" placeholder="Type your message here"></ion-input>
+         <ion-button type="submit">Send</ion-button>
+        </ion-item>
+    </form>
+
+    <!-- Индикатор загрузки при получении новых сообщений -->
+    <div *ngIf="loadingMessages" class="loading-indicator">
+       Loading messages...
+     </div> 
+     
+     <!-- Отобразить ошибку, если она есть -->  
+     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <!-- Кнопка навигации на страницу с контактами -->
+  <button ion-button color='primary' expand='block' routerLink='/contacts'>Contacts Page</button> 
+
+</ion-content>
